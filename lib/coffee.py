@@ -12,7 +12,7 @@ class Coffee:
         if value in ("Small", "Medium", "Large"):
             self._size = value
         else:
-            raise ValueError("size must be 'Small', 'Medium', or 'Large'")
+            raise ValueError("size must be Small, Medium, or Large")
 
     @property
     def price(self):

@@ -9,10 +9,7 @@ class Book:
 
     @title.setter
     def title(self, value):
-        if isinstance(value, str):
-            self._title = value
-        else:
-            raise ValueError("Title must be a string")
+        self._title = value
 
     @property
     def page_count(self):
