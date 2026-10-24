@@ -12,7 +12,7 @@ class Coffee:
         if value in ("Small", "Medium", "Large"):
             self._size = value
         else:
-            raise ValueError("size must be Small, Medium, or Large")
+            print("size must be Small, Medium, or Large")
 
     @property
     def price(self):
@@ -20,11 +20,18 @@ class Coffee:
 
     @price.setter
     def price(self, value):
-        if isinstance(value, (int, float)):
-            self._price = value
+        if isinstance(value, (int, float)) and not isinstance(value, bool) and value >= 0:
+            self._price = float(value)
         else:
-            raise ValueError("price must be a number")
+            print("price must be a non-negative number")
 
     def tip(self):
         self.price += 1
-        print("This coffee is great, here's a tip!")
+        print("This coffee is great, here\u2019s a tip!")
+        return self.price
+
+    def __str__(self):
+        return f"{self.size} coffee (${self.price:.2f})"
+
+    def __repr__(self):
+        return f"Coffee('{self.size}', {self.price})"
